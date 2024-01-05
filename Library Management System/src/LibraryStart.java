@@ -1,5 +1,5 @@
 import Controllers.LibraryLogin;
-import Controllers.Register;
+import Services.Activity.Members.Register;
 import Services.Database.DatabaseConnection;
 
 import java.sql.SQLException;

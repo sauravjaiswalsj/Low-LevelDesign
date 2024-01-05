@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d805fb30-28d9-4214-9554-dc502cbacb76" name="Changes" comment="" />
+    <list default="true" id="d805fb30-28d9-4214-9554-dc502cbacb76" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controllers/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/TransactionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Books/AddBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Books/RemoveBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Books/SearchBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Books/UpdateBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Members/SearchMembers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Members/UpdateMembers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Transaction/BorrowBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Transaction/CheckStatusOfBooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Transaction/CollectFine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Transaction/ComputeFines.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Activity/Transaction/ReturnBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/LibraryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/LibraryLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Activity/Members/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Activity/RemoveMembers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Activity/Members/RemoveMembers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Database/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Database/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Database/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Database/UserRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,5 +103,21 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/LibraryLogin.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/LibraryLogin.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

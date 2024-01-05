@@ -1,4 +1,4 @@
-package Controllers;
+package Services.Activity.Members;
 
 import Model.User;
 import Util.HashPassword;
