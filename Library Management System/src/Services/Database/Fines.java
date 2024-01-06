@@ -1,9 +1,5 @@
 package Services.Database;
-
-import Model.BorrowedBooks;
-
 import java.sql.*;
-import java.time.LocalDate;
 
 public class Fines {
     public static void createPaymentTable(){

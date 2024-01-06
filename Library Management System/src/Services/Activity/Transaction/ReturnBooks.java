@@ -4,7 +4,13 @@ import Services.Database.LendingBooks;
 
 public class ReturnBooks {
     public ReturnBooks(String title, String author, long userId ){
-        LendingBooks.returnBorrowedBook(userId);
-        new ComputeFines(userId);
+        try{
+            LendingBooks.returnBorrowedBook(userId);
+            new ComputeFines(userId);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+        }
+
     }
 }

@@ -28,4 +28,12 @@ public class BorrowedBooks {
     public LocalDate getActualReturnDate() {
         return actualReturnDate;
     }
+
+    public long getBookId() {
+        return bookId;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
 }

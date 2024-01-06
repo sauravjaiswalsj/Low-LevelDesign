@@ -6,9 +6,14 @@ import Services.Database.Stats;
 
 public class RemoveBooks {
     public RemoveBooks(String title, String author){
-        Book newBook = BookRepository.getBook(title,author);
-        BookRepository.removeBookById(newBook.getBookId());
-        Stats.removeBookStats(newBook.getBookId());
-        System.out.println("Mentioned book is removed from the library.");
+        try{
+            Book newBook = BookRepository.getBook(title,author);
+            BookRepository.removeBookById(newBook.getBookId());
+            Stats.removeBookStats(newBook.getBookId());
+            System.out.println("Mentioned book is removed from the library.");
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 }
