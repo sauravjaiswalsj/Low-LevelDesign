@@ -13,7 +13,6 @@ public class AddBooks {
             System.out.println("Book is now added to the library " + book.getTitle());
         }catch (Exception exception){
             System.out.println(exception.getMessage());
-            exception.printStackTrace();
         }
     }
 }

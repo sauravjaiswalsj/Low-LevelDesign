@@ -1,10 +1,7 @@
 package Controllers;
 
 import Model.Book;
-import Services.Activity.Books.AddBooks;
-import Services.Activity.Books.RemoveBooks;
-import Services.Activity.Books.SearchBooks;
-import Services.Activity.Books.UpdateBooks;
+import Services.Activity.Books.*;
 
 import java.util.Scanner;
 
@@ -38,7 +35,9 @@ public class BookController {
         System.out.println("Author");
         String author = scanner.nextLine();
 
-        new RemoveBooks(title, author);
+        long id = GetBookInfo.getBookIdByTitleAndName(title,author);
+
+        new RemoveBooks(id);
     }
 
     public static void updateBook(Scanner scanner){

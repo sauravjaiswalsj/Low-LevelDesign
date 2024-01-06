@@ -26,9 +26,8 @@ public class Student {
         System.out.println("2. Borrow Books");
         System.out.println("3. Return Books");
         System.out.println("4. Check status of a Book");
-        System.out.println("5. Generate Report");
 
-        System.out.println("6. Exit");
+        System.out.println("5. Exit");
 
         int choice = scanner.nextInt();
         scanner.nextLine();
@@ -48,9 +47,6 @@ public class Student {
                 TransactionController.checkStatusOfBooks(scanner);
                 break;
             case 5:
-                TransactionController.payFine(scanner, userId);
-                break;
-            case 6:
                 System.out.println("Exiting.");
                 isExitFalse = false;
                 break;

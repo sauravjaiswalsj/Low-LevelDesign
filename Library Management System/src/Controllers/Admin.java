@@ -31,8 +31,7 @@ public class Admin {
 
         //transcations
         System.out.println("8. Check status of a new Book");
-        System.out.println("9. Calculate Fine");
-        System.out.println("10. Collect Fines");
+        System.out.println("9. Generate Reports");
 
         System.out.println("11. Exit");
         int choice = scanner.nextInt();
@@ -64,12 +63,9 @@ public class Admin {
                     TransactionController.checkStatusOfBooks(scanner);
                     break;
                 case 9:
-                    TransactionController.computeFines();
+                    TransactionController.generateReports();
                     break;
                 case 10:
-                    TransactionController.collectFine();
-                    break;
-                case 11:
                     System.out.println("Exiting.");
                     isExitFalse = false;
                     break;

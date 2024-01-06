@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.HashMap;
 
 public class Stats {
     public static void createStatsTable(){
@@ -69,7 +70,19 @@ public class Stats {
             e.printStackTrace();
         }
     }
-
+    public static void updateAvailableBookStats(long bookId, int availableBooks) {
+        try {
+            Connection connection = DatabaseConnection.connect();
+            String updateStats = "Update stats SET available_copies = ? where book_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(updateStats)) {
+                preparedStatement.setInt(1, availableBooks);
+                preparedStatement.setLong(2, bookId);
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static BookStats getBookStats(long bookId){
         BookStats bookStats = null;
         try{
@@ -92,6 +105,30 @@ public class Stats {
             ex.printStackTrace();
         }
         return bookStats;
+    }
+    public static HashMap<String, Integer> generateStats () {
+        HashMap<String, Integer> borrowedBooks = new HashMap<>();
+        try {
+            Connection connection = DatabaseConnection.connect();
+            String updateStats = "SELECT b.book_id, b.title, COUNT(*) as borrow_count " +
+                                    "FROM borrowed_books bb " +
+                                    "JOIN books b ON bb.book_id = b.book_id " +
+                                    "GROUP BY b.book_id, b.title " +
+                                    "ORDER BY borrow_count DESC";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(updateStats)) {
+                try(ResultSet set = preparedStatement.executeQuery()) {
+                    while (set.next()) {
+                        String title = set.getString("title");
+                        int count = set.getInt("borrow_count");
+
+                        borrowedBooks.put(title,count);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return borrowedBooks;
     }
 }
 

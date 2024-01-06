@@ -7,7 +7,6 @@ import Services.Database.Stats;
 
 public class UpdateBooks {
     public UpdateBooks(String title, String author, Book book){
-
         try{
             Book getOldBook = BookRepository.getBook(title, author);
             book.setBookId(getOldBook.getBookId());
@@ -27,7 +26,6 @@ public class UpdateBooks {
             System.out.printf("%s is now updated \n", book.getTitle());
         }catch (Exception ex){
             System.out.println(ex.getMessage());
-            ex.printStackTrace();
         }
 
     }

@@ -16,7 +16,7 @@ public class MemberController {
     }
 
     public static void updateMember(){
-
+        return;
     }
 
     public static void searchMember(Scanner scanner){

@@ -1,6 +1,9 @@
 package Controllers;
 
+import Services.Activity.Books.GetBookInfo;
 import Services.Activity.Transaction.BorrowBooks;
+import Services.Activity.Transaction.CheckStatusOfBooks;
+import Services.Activity.Transaction.GenerateStats;
 import Services.Activity.Transaction.ReturnBooks;
 
 import java.util.Scanner;
@@ -8,15 +11,18 @@ import java.util.Scanner;
 public class TransactionController {
 
     public static void checkStatusOfBooks(Scanner scanner){
+        System.out.println("Enter Book Name");
+        String title = scanner.nextLine();
 
+        System.out.println("Author");
+        String author = scanner.nextLine();
+        long id = GetBookInfo.getBookIdByTitleAndName(title,author);
+
+        System.out.println(CheckStatusOfBooks.getAvailableBooks(id));
     }
 
-    public static void collectFine(){
-
-    }
-
-    public static void computeFines(){
-
+    public static void generateReports(){
+        new GenerateStats();
     }
 
     public static void borrowBooks(Scanner scanner, long userId){
@@ -38,8 +44,4 @@ public class TransactionController {
 
         new ReturnBooks(title,author, userId);
     }
-    public static void payFine(Scanner scanner, long userId){
-
-    }
-
 }

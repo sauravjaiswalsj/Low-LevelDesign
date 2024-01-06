@@ -19,7 +19,6 @@ public class RemoveMembers {
             System.out.println("User is removed.");
         }catch (Exception ex){
             System.out.println(ex.getMessage());
-            ex.printStackTrace();
         }
     }
 }

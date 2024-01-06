@@ -23,11 +23,10 @@ public class ComputeFines {
                 double fine = getFine(daysDifference);
                 System.out.println("Collect Fine: " + fine);
                 Fines.insertFine(userId,borrowedBooks.getBookId(), fine);
-                System.out.println("Fine Collected" + fine);
+                System.out.println("Fine Collected: " + fine);
             }
         }catch (Exception ex){
             System.out.println(ex.getMessage());
-            ex.printStackTrace();
         }
     }
 

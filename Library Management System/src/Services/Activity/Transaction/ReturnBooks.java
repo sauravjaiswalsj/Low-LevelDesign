@@ -9,8 +9,6 @@ public class ReturnBooks {
             new ComputeFines(userId);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
-            ex.printStackTrace();
         }
-
     }
 }

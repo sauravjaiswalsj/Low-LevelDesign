@@ -48,11 +48,11 @@ public class Book {
     @Override
     public String toString() {
 
-        String sb = "Book Id:" + this.getBookId() +
-                    "Title: " + this.getTitle() +
-                    "Genre = " + this.getGenre()+
-                    "Author = " + this.getAuthor() +
-                    "TotalCopies = " + this.getTotalCopies();
+        String sb = "Book Id: " + this.getBookId() +
+                    " Title: " + this.getTitle() +
+                    " Genre = " + this.getGenre()+
+                    " Author = " + this.getAuthor() +
+                    " TotalCopies = " + this.getTotalCopies();
         return sb;
     }
 }
