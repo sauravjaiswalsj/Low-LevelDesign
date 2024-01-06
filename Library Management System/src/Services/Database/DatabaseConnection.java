@@ -11,9 +11,13 @@ public class DatabaseConnection {
         return DriverManager.getConnection(url, user, password);
     }
 
-    public static void initialize(){
-        UserRepository.createUserTable();
+    public static void initialize() throws SQLException {
         BookRepository.createBookTable();
+        UserRepository.createUserTable();
+        LendingBooks.createLendingTable();
+        Fines.createPaymentTable();
+        if(DatabaseConnection.tableExists(DatabaseConnection.connect(),"books"))
+            Stats.createStatsTable();
     }
     public static boolean tableExists(Connection connection, String tableName) throws SQLException {
         DatabaseMetaData metaData = connection.getMetaData();

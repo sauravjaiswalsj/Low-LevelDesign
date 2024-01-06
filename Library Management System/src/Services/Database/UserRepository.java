@@ -98,18 +98,18 @@ public class UserRepository {
     public static User getUserInfo(long userId){
         try{
             Connection connection = DatabaseConnection.connect();
-            String getUserPassword  = "SELECT user_id, email, first_name, last_name, is_mod from members where user_id = ?";
+            String getUserPassword  = "SELECT user_id, email, first_name, last_name, is_mod, phone_no, address from members where user_id = ?";
             try(PreparedStatement preparedStatement = connection.prepareStatement(getUserPassword)){
                 preparedStatement.setLong(1,userId);
                 try(ResultSet set = preparedStatement.executeQuery()){
                     if(set.next()){
-
                         User user = User.setLocalUser(userId,
                                 set.getString("first_name"),
                                 set.getString("last_name"),
-                                set.getString("email"), 0,
-                                set.getBoolean("is_mod")
-                                , null);
+                                set.getString("email"),
+                                set.getLong("phone_no"),
+                                set.getBoolean("is_mod"),
+                                set.getString("address"));
                         return user;
                     }else{
                         System.out.println("User not found with email: ");
@@ -119,6 +119,20 @@ public class UserRepository {
             }
         }catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static void removeUser(long userId){
+        try {
+            Connection connection = DatabaseConnection.connect();
+            String query = "DELETE FROM members where user_id = ?";
+            try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
+                preparedStatement.setLong(1, userId);
+
+                preparedStatement.execute();
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

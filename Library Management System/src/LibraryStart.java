@@ -48,18 +48,3 @@ public class LibraryStart {
         }
     }
 }
-
-
-
-
-
-/*
-try{
-            Connection connection = DatabaseConnection.connect();
-            BookRepository.createBookTable();
-            Book book = Book.createBookData("Atomic Habits", "Self-help", 100, 150 );
-        }catch (SQLException e){
-            e.printStackTrace();
-            System.out.printf("Could not connect to Database");
-        }
- */

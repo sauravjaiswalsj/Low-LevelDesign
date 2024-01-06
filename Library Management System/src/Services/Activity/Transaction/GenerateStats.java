@@ -1,4 +1,4 @@
 package Services.Activity.Transaction;
 
-public class CollectFine {
+public class GenerateStats {
 }

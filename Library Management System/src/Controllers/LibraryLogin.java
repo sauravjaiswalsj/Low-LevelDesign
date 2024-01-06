@@ -25,7 +25,7 @@ public class LibraryLogin {
                 System.out.println("1. Login via user id:");
                 System.out.println("2. Login via email:");
                 System.out.println("3. Register user");
-                System.out.println("3. Exit");
+                System.out.println("4. Exit");
                 option = scanner.nextInt();
                 scanner.nextLine();
                 switch (option) {
@@ -75,7 +75,9 @@ public class LibraryLogin {
         if(user.isMod()){
             admin.adminController(user, scanner);
         }
-        //student;
+        else{
+            student.studentController(user, scanner);
+        }
     }
 
     private void login(String email, String password, Scanner scanner){

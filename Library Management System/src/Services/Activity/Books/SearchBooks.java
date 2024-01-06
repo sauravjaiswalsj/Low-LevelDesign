@@ -3,16 +3,23 @@ package Services.Activity.Books;
 import Model.Book;
 import Services.Database.BookRepository;
 
+import java.util.List;
+
 public class SearchBooks {
-    public SearchBooks(String title, String author){
-        Book book = BookRepository.getBook(title,author);
+    public SearchBooks(String title){
+        List<Book> books = BookRepository.getBooks(title);
+        if(books == null){
+            System.out.println("Book not found in the library");
+            return;
+        }
 
         System.out.println("Book Info: ");
-        System.out.printf("Book Id: "+ book.getBookId());
-        System.out.println("Title: "+book.getTitle());
-        System.out.println("Genre = " + book.getGenre());
-        System.out.println("Author() = " + book.getAuthor());
-        System.out.println("AvailableCopies() = " + book.getAvailableCopies());
-        System.out.println("TotalCopies() = " + book.getTotalCopies());
+        System.out.println("------------------------------------------------");
+
+        for(Book book : books){
+            System.out.println(book.toString());
+            System.out.println("------------------------------------------------");
+            System.out.println();
+        }
     }
 }

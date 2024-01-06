@@ -1,27 +1,23 @@
 package Model;
 
-import Services.Database.BookRepository;
-
-import java.sql.Struct;
-
 public class Book {
     private long bookId;
     private String title;
     private String genre;
-    private int availableCopies;
     private int totalCopies;
     private String author;
+    public Book(){
 
-    private Book(long bookId,String title, String genre, int availableCopies, int totalCopies, String author){
+    }
+    private Book(long bookId, String title, String genre, String author, int totalCopies ){
         this.bookId = bookId;
         this.title = title;
         this.genre = genre;
-        this.availableCopies = availableCopies;
-        this.totalCopies = totalCopies;
         this.author = author;
+        this.totalCopies = totalCopies;
     }
-    public static Book createLocalBook(long bookId, String title, String genre, String author, int availableCopies, int totalCopies){
-        Book book =  new Book(bookId ,title,genre,availableCopies,totalCopies,author);
+    public static Book createLocalBook(long bookId, String title, String genre, String author, int totalCopies){
+        Book book =  new Book(bookId ,title,genre, author,totalCopies);
         return book;
     }
 
@@ -41,11 +37,22 @@ public class Book {
         return genre;
     }
 
-    public int getAvailableCopies() {
-        return availableCopies;
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
     }
 
     public int getTotalCopies() {
         return totalCopies;
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "Book Id:" + this.getBookId() +
+                    "Title: " + this.getTitle() +
+                    "Genre = " + this.getGenre()+
+                    "Author = " + this.getAuthor() +
+                    "TotalCopies = " + this.getTotalCopies();
+        return sb;
     }
 }

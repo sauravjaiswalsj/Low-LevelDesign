@@ -13,7 +13,8 @@ public class User {
 
     private String password;
 
-    private User(String firstName, String lastName, String email, long phoneNumber, String address, boolean isMod,String password) {
+    private User(long userId, String firstName, String lastName, String email, long phoneNumber, String address, boolean isMod,String password) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -24,15 +25,15 @@ public class User {
     }
 
     public static User createUser(String firstName, String lastName, String email, long phoneNumber, String address, boolean isMod,String password){
-        User user = new User(firstName,lastName,email,phoneNumber,address,isMod,password);
+        User user = new User(-1,firstName,lastName,email,phoneNumber,address,isMod,password);
         UserRepository.addUser(user);
         long id = UserRepository.getUserId(email);
         user.setUserId(id);
         return user;
     }
 
-    public static User setLocalUser(long userId,String firstName, String lastName, String email, long phoneNumber, boolean isMod, String address){
-        User user = new User(firstName,lastName,email,phoneNumber,address,isMod,null);
+    public static User setLocalUser(long userId, String firstName, String lastName, String email, long phoneNumber, boolean isMod, String address){
+        User user = new User(userId, firstName,lastName,email,phoneNumber,address,isMod,null);
         return user;
     }
 

@@ -27,18 +27,17 @@ public class Admin {
         //Members
         System.out.println("5. Remove a new Member");
         System.out.println("6. Update a new Member");
-        System.out.println("7. Search a new Book");
+        System.out.println("7. Search a Member");
 
         //transcations
         System.out.println("8. Check status of a new Book");
         System.out.println("9. Calculate Fine");
         System.out.println("10. Collect Fines");
 
-        System.out.println("11. Exit");scanner.nextLine();
+        System.out.println("11. Exit");
         int choice = scanner.nextInt();
         scanner.nextLine();
         boolean isExitFalse = true;
-        do{
             switch (choice) {
                 case 1:
                     BookController.addBook(scanner);
@@ -53,16 +52,16 @@ public class Admin {
                     BookController.searchBook(scanner);
                     break;
                 case 5:
-                    MemberController.removeMember();
+                    MemberController.removeMember(scanner);
                     break;
                 case 6:
                     MemberController.updateMember();
                     break;
                 case 7:
-                    MemberController.searchMember();
+                    MemberController.searchMember(scanner);
                     break;
                 case 8:
-                    TransactionController.checkStatusOfBooks();
+                    TransactionController.checkStatusOfBooks(scanner);
                     break;
                 case 9:
                     TransactionController.computeFines();
@@ -73,11 +72,11 @@ public class Admin {
                 case 11:
                     System.out.println("Exiting.");
                     isExitFalse = false;
+                    break;
                 default:
                     System.out.println("Try again:");
             }
-        }while (isExitFalse);
 
-        return false;
+        return isExitFalse;
     }
 }

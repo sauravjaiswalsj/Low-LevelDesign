@@ -12,6 +12,7 @@ public class BookController {
     public static void addBook(Scanner scanner){
         Book book = inputBooks(scanner);
         new AddBooks(book);
+
     }
 
     private static Book inputBooks(Scanner scanner){
@@ -24,13 +25,10 @@ public class BookController {
         System.out.println("Author");
         String author = scanner.nextLine();
 
-        System.out.println("Available Copies");
-        int availableCopies = scanner.nextInt();
-
         System.out.println("Total Copies");
         int totalCopies = scanner.nextInt();
 
-        return Book.createLocalBook(-1, title, genre, author, availableCopies, totalCopies);
+        return Book.createLocalBook(-1, title, genre, author, totalCopies);
     }
 
     public static void removeBook(Scanner scanner){
@@ -44,17 +42,23 @@ public class BookController {
     }
 
     public static void updateBook(Scanner scanner){
-        Book book = inputBooks(scanner);
-        new UpdateBooks(book);
-    }
+        System.out.println("Enter the old details.");
 
-    public static void searchBook(Scanner scanner){
         System.out.println("Enter Book Name");
         String title = scanner.nextLine();
 
         System.out.println("Author");
         String author = scanner.nextLine();
 
-        new SearchBooks(title, author);
+        System.out.println("Enter the details you want to be updated.");
+        Book book = inputBooks(scanner);
+        new UpdateBooks(title, author, book);
+    }
+
+    public static void searchBook(Scanner scanner){
+        System.out.println("Enter Book Name");
+        String title = scanner.nextLine();
+
+        new SearchBooks(title);
     }
 }
